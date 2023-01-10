@@ -14,26 +14,34 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!--stylesheet-->
     <link rel="stylesheet" href="css/style.css">
+
+    <!--VUE-JS-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <title>
         vue-slider
     </title>
 </head>
 
-<body class="bg-dark">
-    <div class="container  d-flex">
+<body>
+    <div class="container  d-flex" id="root">
         <div id="carousel">
             <div id="gallery" class="position-relative">
-                <img src="img/01.webp" alt="">
+                <img v-for="(img, i) in imgs" v-show="i === currentI" :src="img.image" v-show="i === currentI"
+                    :alt="img.title">
             </div>
         </div>
         <div id="thumbnails" class="text-center ">
-            <i id="prev" class="fa-solid fa-circle-arrow-up fa-2xl"></i>
-            <div class="thumbs"><img src="img/" alt=""></div>
-            <i id="next" class="fa-solid fa-circle-arrow-down fa-2xl"></i>
+            <i id="prev" @click="goPrev" class="fa-solid fa-circle-arrow-up fa-2xl"></i>
+            <div class="thumbs">
+                <img v-for="(img, i) in imgs" :class="{'active' : i === currentI}" :src="img.image" :alt="img.title">
+            </div>
+            <i id="next" @click="goNext" class="fa-solid fa-circle-arrow-down fa-2xl"></i>
         </div>
     </div>
 
-
+    <!--SCRIPT-->
+    <script src="script/db.js"></script>
     <script src="script/script.js"></script>
 </body>
 

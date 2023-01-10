@@ -28,12 +28,11 @@
     width: 100%;
     margin: 0;
     object-fit: cover;
-    display: none;
 }
 
-#gallery .active {
+/* #gallery .active {
     display: block;
-}
+} */
 
 #thumbnails #prev {
     color: rgba(255, 255, 255, 0.726);
