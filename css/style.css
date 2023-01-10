@@ -1,0 +1,104 @@
+.container {
+    height: 700px;
+    margin: 100px auto;
+}
+
+#carousel {
+    height: 100%;
+    width: 100%;
+}
+
+#gallery {
+    height: 100%;
+    width: 100%;
+
+
+
+}
+
+#gallery .text {
+    display: none;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.39);
+    width: 100%;
+}
+
+#gallery img {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    object-fit: cover;
+    display: none;
+}
+
+#gallery .active {
+    display: block;
+}
+
+#thumbnails #prev {
+    color: rgba(255, 255, 255, 0.726);
+    width: 25px;
+    position: absolute;
+    top: 20px;
+    left: calc(100% /2 - 25px);
+    cursor: pointer;
+    z-index: 1;
+}
+
+#thumbnails #next {
+    color: rgba(255, 255, 255, 0.719);
+    width: 25px;
+    position: absolute;
+    bottom: 20px;
+    left: calc(100% /2 - 25px);
+    cursor: pointer;
+    z-index: 1;
+}
+
+#thumbnails #prev:hover {
+    color: rgb(0, 38, 255);
+}
+
+#thumbnails #next:hover {
+    color: rgb(0, 4, 255);
+}
+
+#thumbnails {
+    position: relative;
+    width: 300px;
+    height: 100%;
+}
+
+
+#thumbnails .thumbs {
+    width: 100%;
+    height: calc(100% / 5);
+    margin: 0;
+    object-fit: fill;
+
+
+}
+
+#thumbnails .thumbs img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    filter: opacity(50%);
+    cursor: pointer;
+    transition: filter 0.5s, transform 1s;
+
+}
+
+#thumbnails .thumbs img:hover {
+    filter: opacity(100%);
+    box-shadow: 0 0 10px rgb(255, 13, 13);
+    transform: scale(1.02);
+
+}
+
+#thumbnails .thumbs img.active {
+    filter: opacity(100%);
+    border: 1px solid blue;
+    box-shadow: 0 0 5px blue;
+}
