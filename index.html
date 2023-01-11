@@ -28,7 +28,11 @@
         <div id="carousel">
             <div id="gallery" class="position-relative">
                 <img v-for="(img, i) in imgs" v-show="i === currentI" :src="img.image" v-show="i === currentI"
-                    :alt="img.title">
+                    :alt="img.title" @mouseenter="stopTimer" @mouseleave="startTimer">
+                <div class="text position-absolute bottom-0 start-50 translate-middle text-white">
+                    <h2>{{ imgs.title }}</h2>
+                    <h5>{{ imgs.text }}</h5>
+                </div>
             </div>
         </div>
         <div id="thumbnails" class="text-center ">

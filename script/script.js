@@ -26,7 +26,7 @@ const app = Vue.createApp({
         return {
             currentI: 0,
             imgs,
-            timer: 0,
+            timer: null,
         }
     },
     computed: {
@@ -34,7 +34,7 @@ const app = Vue.createApp({
     },
     methods: {
         goPrev() {
-            if (this.currentI < 1) this.currentI = this.imgs.length - 1;
+            if (this.currentI === 0) this.currentI = this.imgs.length - 1;
             else {
                 this.currentI--;
             }
@@ -49,15 +49,16 @@ const app = Vue.createApp({
         actualImg(i) {
             this.currentI = i;
         },
-        // autoPlay() {
-        //     this.timer = setInterval(function () {
-        //         this.goNext();
-        //     }, 2000);
-
-        // },
+        stopTimer() {
+            clearInterval(this.timer);
+        },
+        startTimer() {
+            this.timer = setInterval(this.goNext, 2000);
+        }
     },
-
-
+    mounted() {
+        this.startTimer();
+    }
 });
 
 app.mount("#root");
